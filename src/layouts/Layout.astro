@@ -4,9 +4,10 @@ import { SITE_CONFIG } from '../config.ts';
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 
 const baseTheme = SITE_CONFIG.baseTheme;
 const defaultTheme = `${baseTheme}-dark`;
@@ -19,6 +20,7 @@ const defaultTheme = `${baseTheme}-dark`;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <title>{title}</title>
+    {description && <meta name="description" content={description} />}
 
     <!-- THEME TOGGLE SCRIPT -->
     <script is:inline define:vars={{ baseTheme, defaultTheme }}>
