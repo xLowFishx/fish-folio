@@ -1,12 +1,14 @@
 ---
 import '../styles/global.css'
 import { SITE_CONFIG } from '../config.ts';
+import Nav from '../components/nav.astro';
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 
 const baseTheme = SITE_CONFIG.baseTheme;
 const defaultTheme = `${baseTheme}-dark`;
@@ -19,6 +21,7 @@ const defaultTheme = `${baseTheme}-dark`;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <title>{title}</title>
+    {description && <meta name="description" content={description} />}
 
     <!-- THEME TOGGLE SCRIPT -->
     <script is:inline define:vars={{ baseTheme, defaultTheme }}>
@@ -41,6 +44,7 @@ const defaultTheme = `${baseTheme}-dark`;
     ></div>
 
     <main class="px-2 sm:px-12 md:px-14 lg:px-28 max-w-360 mx-auto relative z-0">
+        <Nav />
         <slot />
     </main>
 
