@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Nav from "../components/nav.astro";
 import Home from "../components/home.astro";
 import Tech from "../components/tech.astro";
 import Projects from "../components/projects.astro";
@@ -34,7 +33,6 @@ const { webpageTitle } = data;
 ---
 
 <Layout title={webpageTitle}>
-  <Nav />
   <Home />
   <Career />
   <Projects />

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import { SITE_CONFIG } from '../config.ts';
+import Nav from '../components/nav.astro';
 
 interface Props {
   title: string;
@@ -43,6 +44,7 @@ const defaultTheme = `${baseTheme}-dark`;
     ></div>
 
     <main class="px-2 sm:px-12 md:px-14 lg:px-28 max-w-360 mx-auto relative z-0">
+        <Nav />
         <slot />
     </main>
 
